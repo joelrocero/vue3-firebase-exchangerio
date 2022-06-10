@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <exchange-navbar
+      :title='brandName'
+      :items='menuItems'
+      />
+    
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import ExchangeNavbar from './components/Navbar.vue'
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+    components:{
+    ExchangeNavbar
+  },
+  data() {
+    return {
+  brandName:"Exchangerio",
+      menuItems:[
+        {text:"Home",link:"/"},
+        {text:"About",link:"/about"},
+        {text:"Faq",link:"/faq"} 
+      ],
+    }
   }
+
+
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import 'assets/styles/variables.scss';
+  @import '~bulma/bulma.sass';
+  @import 'assets/styles/main.scss';
+
+
+
+
+  
 </style>
